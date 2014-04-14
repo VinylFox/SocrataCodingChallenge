@@ -1,0 +1,14 @@
+{
+    "passfail"      : false,
+    "browser"       : true,
+    "node"          : true,
+    "globals"        : [
+        "App",
+        "Products",
+        "Basket",
+        "Receipt",
+        "Taxes"
+    ],
+    "devel"         : true,
+    "strict"        : false
+}

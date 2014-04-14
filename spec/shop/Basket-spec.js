@@ -32,7 +32,7 @@ describe('ability to set and retrieve cart items', function(){
 
 describe('ability to add and remove items from the basket', function(){
 
-	it('should add an item to the basket', function(){
+	it('should add an item to the basket', function() {
 
 		var item = sample[0],
 			sku = item.sku;

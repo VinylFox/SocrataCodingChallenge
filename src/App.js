@@ -5,15 +5,15 @@ var Receipt = require('../src/shop/Receipt.js'),
 
 /**
  * @class  App
- * This is the main application class that combines all the functionality 
+ * This is the main application class that combines all the functionality
  * from sub classes into one place.
  * @param {Object} config A configuration object to set the initial config for this class
  */
-function App(config){
+function App(config) {
 	// apply any properties passed into the constructor to this instance
-	for(var prop in config) this[prop] = config[prop];
+	for (var prop in config) this[prop] = config[prop];
 	// tax rounding amount defined as a float, ie: 0.05 = round to nearest 5 cents
-	this.roundTax = (config)?config.roundTax:undefined || 0.05;
+	this.roundTax = (config) ? config.roundTax : undefined || 0.05;
 	// create a local instance of the Receipt class
 	this.receipt = this.receipt || new Receipt();
 	// create a local instance of the Taxes class
@@ -22,13 +22,13 @@ function App(config){
 	this.products = this.products || new Products();
 	// create a local instance of the Basket class
 	this.basket = this.basket || new Basket();
-};
+}
 
 /**
  * Convenience method to add an item to the basket using just the SKU
  * @param {String} sku
  */
-App.prototype.addItem = function(sku){
+App.prototype.addItem = function(sku) {
 	var item = this.products.getProduct(sku);
 	this.basket.addItem(item);
 };
@@ -37,25 +37,25 @@ App.prototype.addItem = function(sku){
  * Retrieve all of the items in the basket, including their taxes
  * @return {Array}
  */
-App.prototype.getItems = function(){
+App.prototype.getItems = function() {
 
 	var items = this.basket.getItems(),
 		cnt = items.length,
 		outputItems = [],
 		i = 0;
-	for (; i < cnt; i++){
+	for (; i < cnt; i++) {
 		outputItems.push(this.taxes.calculate(items[i]));
 	}
-	return outputItems
+	return outputItems;
 
 };
 
 /**
- * Get the totals for the current items in your basket. The returned 
+ * Get the totals for the current items in your basket. The returned
  * object has a total and tax property.
  * @return {Object}
  */
-App.prototype.getTotals = function(){
+App.prototype.getTotals = function() {
 
 	var items = this.basket.getItems(),
 		cnt = items.length,
@@ -65,7 +65,7 @@ App.prototype.getTotals = function(){
 		},
 		i = 0,
 		curItem;
-	for (; i < cnt; i++){
+	for (; i < cnt; i++) {
 		curItem = this.taxes.calculate(items[i]);
 		outputObject.total += parseFloat(curItem.finalPrice);
 		outputObject.tax += parseFloat(curItem.totalTax);
@@ -78,7 +78,7 @@ App.prototype.getTotals = function(){
 
 };
 
-App.prototype.getReceipt = function(items, totals){
+App.prototype.getReceipt = function(items, totals) {
 
 	return this.receipt.getReceipt(items, totals);
 

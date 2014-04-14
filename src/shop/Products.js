@@ -34,7 +34,7 @@ Products.prototype.getProduct = function(sku) {
 Products.prototype.setProducts = function(items) {
 
 	this.items = items;
-	
+
 };
 
 module.exports = Products;

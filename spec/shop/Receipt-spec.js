@@ -4,7 +4,7 @@ var Receipt = require('../../src/shop/Receipt.js'),
 	// keeping the count of all the sample items to use in tests
 	itemCount = sample.length;
 
-beforeEach(function(){
+beforeEach(function() {
 	receipt = new Receipt();
 });
 
@@ -20,9 +20,9 @@ describe('basic receipt setup', function() {
 
 });
 
-describe('formatting functions work as expected', function(){
+describe('formatting functions work as expected', function() {
 
-	it('should be able to pad a name and add imported indication', function(){
+	it('should be able to pad a name and add imported indication', function() {
 
 		expect(receipt.formatName('Test', false)).toEqual('Test.........................');
 		// this one tests the imported indicator functionality
@@ -30,7 +30,7 @@ describe('formatting functions work as expected', function(){
 
 	});
 
-	it('should format prices properly', function(){
+	it('should format prices properly', function() {
 
 		// keeping it simple, formatted money can be no more than 999.99
 		expect(receipt.formatMoney('100.50')).toEqual(' $100.50');

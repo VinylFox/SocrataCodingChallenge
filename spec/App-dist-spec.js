@@ -1,30 +1,11 @@
-var app = require('../src/App.js'),
+/*
+ * This spec is only to test that the final functionality of this app still works when compressed.
+ *
+ * uglifyjs src/shop/Basket.js src/shop/Products.js src/shop/Receipt.js src/shop/Taxes.js src/App.js -o dist/socrata.app.min.js --source-map dist/socrata.app.min.js.map --source-map-root http://localhost/ -p 5 -c -m
+ */
+
+var app = require('../dist/socrata.app.min.js'),
 	sample = require('../spec/sample-data.js');
-
-// just re-import the classes here so they can be tested against
-var Receipt = require('../src/shop/Receipt.js'),
-	Taxes = require('../src/shop/Taxes.js'),
-	Products = require('../src/shop/Products.js'),
-	Basket = require('../src/shop/Basket.js');
-
-describe('basic application setup', function() {
-
-	it('should have receipt, taxes, product and basket classes', function() {
-
-		expect(app.receipt instanceof Receipt).toBeTruthy();
-		expect(app.taxes instanceof Taxes).toBeTruthy();
-		expect(app.products instanceof Products).toBeTruthy();
-		expect(app.basket instanceof Basket).toBeTruthy();
-
-	});
-
-	it('should return a receipt', function() {
-
-		expect(app.getReceipt(app.getItems(), app.getTotals())).not.toEqual(undefined);
-
-	});
-
-});
 
 describe('sample input and output tests', function() {
 
