@@ -4,7 +4,9 @@
  * @param {Object} config A configuration object to set the initial config for this class
  */
 function Products(config) {
+
 	this.items = (config) ? config.products : undefined || [];
+
 }
 
 /**
@@ -13,6 +15,7 @@ function Products(config) {
  * @return {Object}
  */
 Products.prototype.getProduct = function(sku) {
+
 	var cnt = this.items.length,
 		i = 0;
 	for (; i < cnt; i++) {
@@ -21,6 +24,7 @@ Products.prototype.getProduct = function(sku) {
 		}
 	}
 	return null;
+
 };
 
 /**
@@ -28,7 +32,9 @@ Products.prototype.getProduct = function(sku) {
  * @param {Array} items
  */
 Products.prototype.setProducts = function(items) {
+
 	this.items = items;
+	
 };
 
 module.exports = Products;

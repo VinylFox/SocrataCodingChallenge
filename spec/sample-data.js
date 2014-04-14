@@ -20,19 +20,19 @@ module.exports = [{
 	sku: 'IMPCHOC1',
 	type: 'food',
 	imported: true,
-	name: 'imported box of chocolates',
+	name: 'box of chocolates',
 	price: 10.00
 },{
 	sku: 'IMPPERF1',
 	type: 'perfume',
 	imported: true,
-	name: 'imported bottle of perfume',
+	name: 'bottle of perfume',
 	price: 47.50
 },{
 	sku: 'IMPPERF2',
 	type: 'perfume',
 	imported: true,
-	name: 'imported bottle of perfume',
+	name: 'bottle of perfume',
 	price: 27.99
 },{
 	sku: 'PERF1',
@@ -50,6 +50,6 @@ module.exports = [{
 	sku: 'IMPCHOC2',
 	type: 'food',
 	imported: true,
-	name: 'box of imported chocolates',
+	name: 'box of chocolates',
 	price: 11.25
 }];

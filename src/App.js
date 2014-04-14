@@ -38,6 +38,7 @@ App.prototype.addItem = function(sku){
  * @return {Array}
  */
 App.prototype.getItems = function(){
+
 	var items = this.basket.getItems(),
 		cnt = items.length,
 		outputItems = [],
@@ -46,6 +47,7 @@ App.prototype.getItems = function(){
 		outputItems.push(this.taxes.calculate(items[i]));
 	}
 	return outputItems
+
 };
 
 /**
@@ -54,6 +56,7 @@ App.prototype.getItems = function(){
  * @return {Object}
  */
 App.prototype.getTotals = function(){
+
 	var items = this.basket.getItems(),
 		cnt = items.length,
 		outputObject = {
@@ -72,6 +75,13 @@ App.prototype.getTotals = function(){
 	outputObject.tax = outputObject.tax.toFixed(2);
 
 	return outputObject;
+
+};
+
+App.prototype.getReceipt = function(items, totals){
+
+	return this.receipt.getReceipt(items, totals);
+
 };
 
 module.exports = new App();

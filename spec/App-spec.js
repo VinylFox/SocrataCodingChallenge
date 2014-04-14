@@ -1,5 +1,5 @@
-var app = require("../src/App.js"),
-	sample = require("../spec/sample-data.js");
+var app = require('../src/App.js'),
+	sample = require('../spec/sample-data.js');
 
 // just re-import the classes here so they can be tested against
 var Receipt = require('../src/shop/Receipt.js'),
@@ -7,9 +7,9 @@ var Receipt = require('../src/shop/Receipt.js'),
 	Products = require('../src/shop/Products.js'),
 	Basket = require('../src/shop/Basket.js');
 
-describe("basic application setup", function() {
+describe('basic application setup', function() {
 
-	it("should have receipt, taxes, product and basket classes", function() {
+	it('should have receipt, taxes, product and basket classes', function() {
 
 		expect(app.receipt instanceof Receipt).toBeTruthy();
 		expect(app.taxes instanceof Taxes).toBeTruthy();
@@ -18,11 +18,17 @@ describe("basic application setup", function() {
 
 	});
 
+	it('should return a receipt', function(){
+
+		expect(app.getReceipt(app.getItems(), app.getTotals())).not.toEqual(undefined);
+
+	});
+
 });
 
-describe("sample input and output tests", function(){
+describe('sample input and output tests', function(){
 
-	it("sample basket #1 should calculate totals properly", function(){
+	it('sample basket #1 should calculate totals properly', function(){
 
 		app.products.setProducts(sample);
 
@@ -47,7 +53,7 @@ describe("sample input and output tests", function(){
 
 	});
 
-	it("sample basket #2 should calculate totals properly", function(){
+	it('sample basket #2 should calculate totals properly', function(){
 
 		app.products.setProducts(sample);
 
@@ -70,7 +76,7 @@ describe("sample input and output tests", function(){
 
 	});
 
-	it("sample basket #3 should calculate totals properly", function(){
+	it('sample basket #3 should calculate totals properly', function(){
 
 		app.products.setProducts(sample);
 

@@ -5,7 +5,9 @@
  * @param {Object} config A configuration object to set the initial config for this class
  */
 function Basket(config){
+
 	this.items = (config)?config.items:undefined || [];
+
 }
 
 /**
@@ -13,7 +15,9 @@ function Basket(config){
  * @return {Array}
  */
 Basket.prototype.getItems = function(){
+
 	return this.items;
+
 };
 
 /**
@@ -21,14 +25,18 @@ Basket.prototype.getItems = function(){
  * @param {Array} items
  */
 Basket.prototype.setItems = function(items){
+
 	this.items = items;
+
 };
 
 /**
  * Remove all of the items in the basket.
  */
 Basket.prototype.clearItems = function(){
+
 	this.items = [];
+
 };
 
 /**
@@ -38,7 +46,9 @@ Basket.prototype.clearItems = function(){
  * by their SKU.
  */
 Basket.prototype.addItem = function(item){
+
 	this.items.push(item);
+	
 };
 
 module.exports = Basket;
