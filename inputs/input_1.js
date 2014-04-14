@@ -1,5 +1,5 @@
-var app = require('./src/App.js'),
-	sample = require('./spec/sample-data.js');
+var app = require('../src/App.js'),
+	sample = require('../spec/sample-data.js');
 
 app.products.setProducts(sample);
 

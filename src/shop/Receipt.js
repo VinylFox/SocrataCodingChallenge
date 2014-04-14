@@ -7,39 +7,39 @@ var util = require('util');
  */
 function Receipt(config) {
 
-	var nl = "\r\n",
-		defaultHeaderTemplate =
-			" _______________________________________________" + nl +
-			"|                                               |" + nl +
-			"|     .::+                        .+            |" + nl +
-			"|     :                           .+            |" + nl +
-			"|     +;    +++++  ++++:+++ ++++ ++++:.++++     |" + nl +
-			"|     :++, :+   +.'+   :+      '+ .+      +     |" + nl +
-			"|       ;+.+;   +++,   :+   .++++ .+   '+++     |" + nl +
-			"|        +++;   +++,   :+  ,+  :+ .+  +'  +     |" + nl +
-			"|        +',+   +`;+   :+  ++  ++ .+  +   +     |" + nl +
-			"|     ++++  '+++'  ++++,+  `+++'+  ++;+++++     |" + nl +
-			"|                                               |" + nl +
-			"|                               Store           |" + nl +
-			"|                                               |" + nl +
-			"|-----------------------------------------------|" + nl +
-			"|                                               |" + nl,
-		defaultItemTemplate =
-			"|  %s  x  %s%s  |" + nl,
-		defaultFooterTemplate =
-			"|                                               |" + nl +
-			"|-----------------------------------------------|" + nl +
-			"|                                               |" + nl +
-			"|                     Sales tax ......%s  |" + nl +
-			"|                     Total ..........%s  |" + nl +
-			"|                                               |" + nl +
-			"|      Thanks for shopping with Socrata!        |" + nl +
-			"|_______________________________________________|";
+    var nl = "\r\n",
+        defaultHeaderTemplate =
+            " _______________________________________________" + nl +
+            "|                                               |" + nl +
+            "|     .::+                        .+            |" + nl +
+            "|     :                           .+            |" + nl +
+            "|     +;    +++++  ++++:+++ ++++ ++++:.++++     |" + nl +
+            "|     :++, :+   +.'+   :+      '+ .+      +     |" + nl +
+            "|       ;+.+;   +++,   :+   .++++ .+   '+++     |" + nl +
+            "|        +++;   +++,   :+  ,+  :+ .+  +'  +     |" + nl +
+            "|        +',+   +`;+   :+  ++  ++ .+  +   +     |" + nl +
+            "|     ++++  '+++'  ++++,+  `+++'+  ++;+++++     |" + nl +
+            "|                                               |" + nl +
+            "|                               Store           |" + nl +
+            "|                                               |" + nl +
+            "|-----------------------------------------------|" + nl +
+            "|                                               |" + nl,
+        defaultItemTemplate =
+            "|  %s  x  %s%s  |" + nl,
+        defaultFooterTemplate =
+            "|                                               |" + nl +
+            "|-----------------------------------------------|" + nl +
+            "|                                               |" + nl +
+            "|                     Sales tax ......%s  |" + nl +
+            "|                     Total ..........%s  |" + nl +
+            "|                                               |" + nl +
+            "|      Thanks for shopping with Socrata!        |" + nl +
+            "|_______________________________________________|";
 
-	this.headerTemplate = (config) ? config.headerTemplate : undefined || defaultHeaderTemplate;
-	this.itemTemplate = (config) ? config.itemTemplate : undefined || defaultItemTemplate;
-	this.footerTemplate = (config) ? config.footerTemplate : undefined || defaultFooterTemplate;
-	this.nl = nl;
+    this.headerTemplate = (config) ? config.headerTemplate : undefined || defaultHeaderTemplate;
+    this.itemTemplate = (config) ? config.itemTemplate : undefined || defaultItemTemplate;
+    this.footerTemplate = (config) ? config.footerTemplate : undefined || defaultFooterTemplate;
+    this.nl = nl;
 
 }
 
@@ -49,19 +49,19 @@ function Receipt(config) {
  * @param  {Object} totals An Object with a tax and total property.
  * @return {String} The receipt string.
  */
-Receipt.prototype.getReceipt = function(items, totals) {
+Receipt.prototype.getReceipt = function (items, totals) {
 
-	var receipt = this.headerTemplate,
-		cnt = items.length,
-		i = 0;
+    var receipt = this.headerTemplate,
+        cnt = items.length,
+        i = 0;
 
-	for (; i < cnt; i++) {
-		receipt += util.format(this.itemTemplate, 1, this.formatName(items[i].name, items[i].imported), this.formatMoney(items[i].finalPrice));
-	}
+    for (; i < cnt; i++) {
+        receipt += util.format(this.itemTemplate, 1, this.formatName(items[i].name, items[i].imported), this.formatMoney(items[i].finalPrice));
+    }
 
-	receipt += util.format(this.footerTemplate, this.formatMoney(totals.tax), this.formatMoney(totals.total));
+    receipt += util.format(this.footerTemplate, this.formatMoney(totals.tax), this.formatMoney(totals.total));
 
-	return receipt;
+    return receipt;
 
 };
 
@@ -71,9 +71,9 @@ Receipt.prototype.getReceipt = function(items, totals) {
  * @param  {String} amt The dollar ammount string with two decimals.
  * @return {String} The formatted value with a dollar sign and padding added.
  */
-Receipt.prototype.formatMoney = function(amt) {
+Receipt.prototype.formatMoney = function (amt) {
 
-	return this.repeatChars(" ", (6 - amt.length)) + "$" + amt;
+    return this.repeatChars(" ", (6 - amt.length)) + "$" + amt;
 
 };
 
@@ -84,11 +84,11 @@ Receipt.prototype.formatMoney = function(amt) {
  * @param  {Boolean} imported Will add an imported indicator if true.
  * @return {String}
  */
-Receipt.prototype.formatName = function(name, imported) {
+Receipt.prototype.formatName = function (name, imported) {
 
-	name = (imported) ? name + " (imported)" : name;
+    name = (imported) ? name + " (imported)" : name;
 
-	return name + this.repeatChars(".", (28 - name.length));
+    return name + this.repeatChars(".", (28 - name.length));
 
 };
 
@@ -99,16 +99,16 @@ Receipt.prototype.formatName = function(name, imported) {
  * @param  {Integer} cnt How many times to repeat the character.
  * @return {String}
  */
-Receipt.prototype.repeatChars = function(chr, cnt) {
+Receipt.prototype.repeatChars = function (chr, cnt) {
 
-	var str = chr,
-		i = 0;
+    var str = chr,
+        i = 0;
 
-	for (; i < cnt; i++) {
-		str += chr;
-	}
+    for (; i < cnt; i++) {
+        str += chr;
+    }
 
-	return str;
+    return str;
 
 };
 

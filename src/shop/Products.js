@@ -5,7 +5,7 @@
  */
 function Products(config) {
 
-	this.items = (config) ? config.products : undefined || [];
+    this.items = (config) ? config.products : undefined || [];
 
 }
 
@@ -14,16 +14,16 @@ function Products(config) {
  * @param  {String} sku
  * @return {Object}
  */
-Products.prototype.getProduct = function(sku) {
+Products.prototype.getProduct = function (sku) {
 
-	var cnt = this.items.length,
-		i = 0;
-	for (; i < cnt; i++) {
-		if (this.items[i].sku === sku) {
-			return this.items[i];
-		}
-	}
-	return null;
+    var cnt = this.items.length,
+        i = 0;
+    for (; i < cnt; i++) {
+        if (this.items[i].sku === sku) {
+            return this.items[i];
+        }
+    }
+    return null;
 
 };
 
@@ -31,9 +31,9 @@ Products.prototype.getProduct = function(sku) {
  * Pass in an array of products that are part of the system.
  * @param {Array} items
  */
-Products.prototype.setProducts = function(items) {
+Products.prototype.setProducts = function (items) {
 
-	this.items = items;
+    this.items = items;
 
 };
 

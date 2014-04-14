@@ -6,7 +6,7 @@
  */
 function Basket(config) {
 
-	this.items = (config) ? config.items : undefined || [];
+    this.items = (config) ? config.items : undefined || [];
 
 }
 
@@ -14,9 +14,9 @@ function Basket(config) {
  * Retrieve all items in the basket.
  * @return {Array}
  */
-Basket.prototype.getItems = function() {
+Basket.prototype.getItems = function () {
 
-	return this.items;
+    return this.items;
 
 };
 
@@ -24,18 +24,18 @@ Basket.prototype.getItems = function() {
  * Use to add items to the cart in a bulk manner.
  * @param {Array} items
  */
-Basket.prototype.setItems = function(items) {
+Basket.prototype.setItems = function (items) {
 
-	this.items = items;
+    this.items = items;
 
 };
 
 /**
  * Remove all of the items in the basket.
  */
-Basket.prototype.clearItems = function() {
+Basket.prototype.clearItems = function () {
 
-	this.items = [];
+    this.items = [];
 
 };
 
@@ -45,9 +45,9 @@ Basket.prototype.clearItems = function() {
  * Use the getProduct method on the Products class to retrieve products
  * by their SKU.
  */
-Basket.prototype.addItem = function(item) {
+Basket.prototype.addItem = function (item) {
 
-	this.items.push(item);
+    this.items.push(item);
 
 };
 
